@@ -1,0 +1,30 @@
+services:
+  lingarr.dev:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    networks:
+      - lingarr
+    depends_on:
+      Lingarr.Mysql:
+        condition: service_healthy
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/workspace
+      - ../media/data/config:/app/config
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DB_CONNECTION=mysql
+      - DB_HOST=Lingarr.Mysql
+      - DB_PORT=3306
+      - DB_DATABASE=LingarrMysql
+      - DB_USERNAME=LingarrMysql
+      - DB_PASSWORD=Secret1234
+      - SERVICE_TYPE=libretranslate
+      - LIBRE_TRANSLATE_URL=http://libretranslate:5000
+      - SOURCE_LANGUAGES=[{"name":"English","code":"en"},{"name":"Dutch","code":"nl"}]
+      - TARGET_LANGUAGES=[{"name":"Turkish","code":"tr"},{"name":"Dutch","code":"nl"}]
+      - ASPNETCORE_URLS=http://+:9876
+      - ASPNETCORE_HTTP_PORTS=9876
+      - VITE_PORT=9877

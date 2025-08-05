@@ -13,6 +13,7 @@ services:
     volumes:
       - .:/workspace
       - ../media/data/config:/app/config
+      - /mnt/media:/mnt/media # optional, when using external sonarr and radarr
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - DB_CONNECTION=mysql

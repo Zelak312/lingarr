@@ -30,3 +30,6 @@ services:
       - ASPNETCORE_HTTP_PORTS=9876
       - VITE_PORT=9877
       - VITE_BASE_SERVER_URL=localhost:9876
+    ports:
+      - "9876:9876"
+      - "9877:9877"

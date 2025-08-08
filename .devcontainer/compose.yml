@@ -13,6 +13,7 @@ services:
     volumes:
       - .:/workspace
       - ../media/data/config:/app/config
+      - ./Lingarr.Server/Statics:/app/Statics # Mount Statics correctly to not have to rebuild
       - /mnt/media:/mnt/media # optional, when using external sonarr and radarr
     environment:
       - ASPNETCORE_ENVIRONMENT=Development

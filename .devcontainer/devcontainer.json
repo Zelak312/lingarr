@@ -40,7 +40,8 @@
 				"ms-dotnettools.csharp",
 				"dbaeumer.vscode-eslint",
 				"esbenp.prettier-vscode",
-				"ms-dotnettools.csdevkit"
+				"ms-dotnettools.csdevkit",
+				"Vue.volar"
 			]
 		}
 	},
